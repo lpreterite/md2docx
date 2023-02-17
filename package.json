@@ -1,0 +1,69 @@
+{
+  "name": "@packy-tang/md2docx",
+  "version": "0.0.0",
+  "description": "Markdown to docx command tool",
+  "main": "dist/md2docx.cjs.js",
+  "module": "dist/md2docx.esm.js",
+  "jsnext:main": "dist/md2docx.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "pretest": "rollup -c -m inline",
+    "test": "mocha './tests/unit/*.spec.js'",
+    "test:coverage": "nyc mocha './tests/unit/*.spec.js'",
+    "prerelease": "npm run build",
+    "release": "release-it",
+    "nvm": "sh bin/nvm.sh"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lpreterite/md2docx"
+  },
+  "publishConfig": {
+    "registry": "http://119.29.101.140:4873/"
+  },
+  "keywords": [
+    "md",
+    "docx",
+    "command"
+  ],
+  "author": "packy-tang <lpreterite@126.com> (https://github.com/lpreterite)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lpreterite/md2docx/issues"
+  },
+  "homepage": "https://github.com/lpreterite/md2docx#readme",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.0",
+    "html-to-docx": "^1.6.5",
+    "image-size": "^1.0.2",
+    "jsdom": "^21.1.0",
+    "jszip": "^2.7.0",
+    "lodash.merge": "^4.6.2",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/register": "^7.13.14",
+    "@release-it/conventional-changelog": "^4.2.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "chai": "^4.2.0",
+    "core-js": "^3.28.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "release-it": "^14.6.1",
+    "rollup": "^2.45.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
