@@ -59,13 +59,24 @@ module.exports = {
         base64Path = `data:${contentType};base64,${encodedContent}`
         // el.src = base64Path
       }
-
       // console.log(base64Path.substring(0, 20))
       const extension = contentType.split("/")[1];
       const filename = this.md5(base64Path)
+
+      const originSize = sizeOf(Buffer.from(encodedContent,'base64'))
+      const ratio = originSize.height/originSize.width
+      const maxWidth = 680
+      const width = Math.min(originSize.width, maxWidth)
+      const height = ratio * width
+
+      // update Dom
       el.src = contentLocation =`file:///C:/fake/images/${filename}.${extension}`
+      el.width = width
+      el.height = height
+
       return {
         originPath,
+        originSize,
         base64Path,
         contentLocation,
         contentType,contentEncoding,encodedContent
