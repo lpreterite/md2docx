@@ -13,7 +13,8 @@
     "test:coverage": "nyc mocha './tests/unit/*.spec.js'",
     "prerelease": "npm run build",
     "release": "release-it",
-    "nvm": "sh bin/nvm.sh"
+    "nvm": "sh bin/nvm.sh",
+    "build_md": "node src/example"
   },
   "files": [
     "dist",
@@ -41,11 +42,13 @@
     "art-template": "^4.13.2",
     "chalk": "^5.2.0",
     "commander": "^10.0.0",
+    "glob": "^8.1.0",
     "html-to-docx": "^1.6.5",
     "image-size": "^1.0.2",
     "jsdom": "^21.1.0",
     "jszip": "^2.7.0",
     "lodash.merge": "^4.6.2",
+    "marked": "^4.2.12",
     "mime-types": "^2.1.35"
   },
   "devDependencies": {
