@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const pkg = require("../../package.json");
+const pkg = require("../package.json");
 const path = require("path")
 const { Command } = require('commander');
 const program = new Command();
-const md2docx = require('../main');
+const md2docx = require('./main');
 
 program
   .name("md2docx")

@@ -2,30 +2,24 @@
   "name": "@packy-tang/md2docx",
   "version": "0.0.0",
   "description": "Markdown to docx command tool",
-  "main": "dist/md2docx.cjs.js",
-  "module": "dist/md2docx.esm.js",
-  "jsnext:main": "dist/md2docx.esm.js",
+  "main": "src/main.js",
+  "bin": "src/cli.js",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
-    "pretest": "rollup -c -m inline",
     "test": "mocha './tests/unit/*.spec.js'",
     "test:coverage": "nyc mocha './tests/unit/*.spec.js'",
-    "prerelease": "npm run build",
     "release": "release-it",
-    "nvm": "sh bin/nvm.sh",
-    "build_md": "node src/example"
+    "nvm": "sh bin/nvm.sh"
   },
   "files": [
-    "dist",
     "src"
   ],
+  "engines": {
+    "npm": ">=6.0.0",
+    "node": ">=14.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lpreterite/md2docx"
-  },
-  "publishConfig": {
-    "registry": "http://119.29.101.140:4873/"
   },
   "keywords": [
     "md",
@@ -42,11 +36,8 @@
     "chalk": "^5.2.0",
     "commander": "^10.0.0",
     "happy-dom": "^8.7.1",
-    "glob": "^8.1.0",
-    "html-to-docx": "^1.6.5",
     "image-size": "^1.0.2",
     "jszip": "^2.7.0",
-    "lodash.merge": "^4.6.2",
     "marked": "^4.2.12",
     "mime-types": "^2.1.35"
   },

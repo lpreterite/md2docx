@@ -4,9 +4,19 @@ const marked = require('marked')
 const toDocx = require('./toDocx')
 
 function MD2Docx(options={}){
+  function getOutputDirPath(outputPath, defaultPath){
+    // console.log(outputPath)
+    let stats;
+    try{
+      stats = fs.statSync(outputPath)
+    }catch(e){}
+    if(!stats) return defaultPath
+    return stats.isDirectory() ? outputPath : path.dirname(outputPath)
+  }
+
   function generate(input, output, {pwd,encoding="utf8"}={}){
     const filename = path.basename(input, path.extname(input))
-    const outputDir = output ? (fs.lstatSync(output).isDirectory()?output:path.dirname(output)) : path.dirname(input)
+    const outputDir = getOutputDirPath(output,path.dirname(input))
     pwd = pwd ? pwd : path.dirname(input)
     output = path.resolve(outputDir, `${filename}.docx`)
 
