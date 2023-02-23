@@ -167,4 +167,3 @@ function toDocx(options={}){
 
 const factory = (options) => new toDocx(options);
 module.exports = module.exports.default = factory()
-module.exports.Constructor = toDocx

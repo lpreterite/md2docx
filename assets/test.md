@@ -1,4 +1,4 @@
-网页布局（layout）是 CSS 的一个重点应用。<br />![](../assets/devops.png)
+网页布局（layout）是 CSS 的一个重点应用。<br />![](imgs/devops.png)
 
 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 

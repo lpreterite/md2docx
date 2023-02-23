@@ -1,29 +1,20 @@
 #!/usr/bin/env node
 
+const pkg = require("../../package.json");
+const path = require("path")
 const { Command } = require('commander');
 const program = new Command();
-const pkg = require("../../package.json");
+const md2docx = require('../main');
 
 program
   .name("md2docx")
   .description(pkg.description)
   .version(pkg.version, '-v, --version', `version`)
-  // .option('')
-  .argument('<htmlFile>', 'html file')
-  .action((htmlFile)=>{
+  .option('-o, --outputDir <string>', 'output path')
+  .argument('<string>', 'Markdown File')
+  .action((mdPath)=>{
     const opts = program.opts();
-
+    md2docx.generate(path.resolve(process.cwd(),mdPath), path.resolve(process.cwd(),opts.outputDir))
   })
-
-
-// program.command('split')
-//   .description('Split a string into substrings and display as an array')
-//   .argument('<string>', 'string to split')
-//   .option('--first', 'display just the first substring')
-//   .option('-s, --separator <char>', 'separator character', ',')
-//   .action((str, options) => {
-//     const limit = options.first ? 1 : undefined;
-//     console.log(str.split(options.separator, limit));
-//   });
 
 program.parse();
