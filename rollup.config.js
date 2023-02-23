@@ -2,14 +2,20 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
+import json from '@rollup/plugin-json';
+import external from '@yelo/rollup-node-external';
+// import nodePolyfills from "rollup-plugin-node-polyfills";
 
 import pkg from "./package.json";
 
 const name = "md2docx";
 
 const plugins = [
-  resolve(),
+  // nodePolyfills(),
+  resolve({ preferBuiltins: true }),
   commonjs(),
+  babel(),
+  json(),
 ];
 /**
  * key为包名称，value为全局引用的值
@@ -37,6 +43,6 @@ export default [
       },
     ],
     plugins,
-    external: Object.keys(globals),
+    external: external(),
   }
 ];
