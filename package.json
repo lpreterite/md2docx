@@ -21,6 +21,9 @@
     "type": "git",
     "url": "https://github.com/lpreterite/md2docx"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "md",
     "docx",
