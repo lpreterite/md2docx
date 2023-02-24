@@ -4,6 +4,13 @@
 
 
 
+### [1.0.1](https://github.com/lpreterite/md2docx/compare/1.0.0...1.0.1) (2023-02-24)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 使用adm-zip替换jszip，保持MIT开源协议一致性问题 ([317426d](https://github.com/lpreterite/md2docx/commit/317426d3497a2adb634fe0a8c21ccd45811f96f2))
+
 ## 1.0.0 (2023-02-24)
 
 

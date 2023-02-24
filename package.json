@@ -1,6 +1,6 @@
 {
   "name": "@packy-tang/md2docx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Markdown to docx command tool",
   "main": "src/main.js",
   "bin": "src/cli.js",
