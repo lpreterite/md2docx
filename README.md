@@ -66,3 +66,6 @@ $ md2docx test.md
 Copyright (c) packy-tang [<lpreterite@126.com>](https://github.com/lpreterite)
 
 根据[MIT协议](./LICENSE)的开源软件.
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flpreterite%2Fmd2docx.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flpreterite%2Fmd2docx?ref=badge_large)
+
