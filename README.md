@@ -1,55 +1,68 @@
 # md2docx
 
+
+[![npm version](https://img.shields.io/npm/v/@packy-tang/md2docx.svg)](https://www.npmjs.com/package/@packy-tang/md2docx)
+![](https://img.shields.io/node/v/@packy-tang/md2docx)
+[![NPM downloads](http://img.shields.io/npm/dm/@packy-tang/md2docx.svg)](https://www.npmjs.com/package/@packy-tang/md2docx)
+
 > Markdown to docx command tool
 
-## 功能（Features）
+## Features
 
-一句话介绍一下这个工具是干什么的？它需要在什么的前提下运作？它本身有什么局限性？它的工作范围包括哪些内容？等。
-
-- 功能1
-- 功能2
-- 功能3
+将Markdown格式文档转换为Word文档内容。转换过程是 `md-> html -> mhtm -> docx`。参考 [evidenceprime/html-docx-js](https://github.com/evidenceprime/html-docx-js) 思路进行设计。
 
 ## 安装（Install）
 
 ```sh
-# 设置组件安装来源
-$ echo '@i-components:registry=http://119.29.101.140:4873/' >> .npmrc
-
-# 安装依赖
-$ npm i @packy-tang/md2docx
+$ npm i -g @packy-tang/md2docx
 ```
 
 ## 使用（How to Use）
 
-### 函数1
+### 命令行
 
-```js
-// 函数使用时的情况，并列出所支持的传入参数
+```sh
+$ md2docx -h
+Usage: md2docx [options] <string>
 
-函数1({
-  user: '',
-  tmp: '',
-  debug: false
-})
+Markdown to docx command tool
+
+Arguments:
+  string                    Markdown File
+
+Options:
+  -v, --version             version
+  -o, --outputDir <string>  output path
+  -h, --help                display help for command
 ```
 
-一句简介。
+## 使用例子
 
-| 变量名称 | 类型   | 描述                                 |
-| -------- | ------ | ------------------------------------ |
-| user | String | 可选，默认为空字符, 传入后会发生什么事情？做成怎样的影响？ |
-| tmp | String |   可选，默认为空字符。 |
-| debug | Boolean | 可选，默认为`false` |
+```sh
+$ md2docx test.md
+# 在test.md同目录下生产产出 test.docx 文件
+
+$ mkdir dist/
+$ md2docx -o dist/ test.md
+# 指定 dist/ 作为产出目录，test.docx 文件会在dist目录中
+```
 
 ## 开发（Develop）
 
-简单描述在本仓库如何本地运行及调试等细节。
+```sh
+# 更新nodejs版本
+$ npm run nvm
 
-## 来自（From）
+# 更改你的代码，运行下面代码进行转换测试
+$ node src/example.js
 
-本仓库是由 [esmodule-template](https://gogs.infzm.com/INF_FE/esmodule-template) 作为基础进行模板化处理。
+# 运行下面代码进行命令行测试
+$ npm link
+$ md2docx test.md
+```
 
 ## License
 
-MIT &copy; packy-tang
+Copyright (c) packy-tang [<lpreterite@126.com>](https://github.com/lpreterite)
+
+根据[MIT协议](./LICENSE)的开源软件.
