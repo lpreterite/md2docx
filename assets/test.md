@@ -1,5 +1,7 @@
 网页布局（layout）是 CSS 的一个重点应用。<br />![](imgs/devops.png)
 
+![中文路径](%E4%B8%AD%E6%96%87%E7%9B%AE%E5%BD%95\nodejs.png)
+
 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 
 > - `flex-start`（默认值）：左对齐

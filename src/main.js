@@ -3,7 +3,7 @@ const fs = require('fs')
 const marked = require('marked')
 const toDocx = require('./toDocx')
 
-function MD2Docx(options={}){
+function MD2Docx({decodeImgPath=true}={}){
   function getOutputDirPath(outputPath, defaultPath){
     // console.log(outputPath)
     let stats;
@@ -21,9 +21,20 @@ function MD2Docx(options={}){
     output = path.resolve(outputDir, `${filename}.docx`)
 
     // console.log("MD2Docx: %s | %s | %s", input,output,outputDir)
+    marked.use({
+      renderer: {
+        image(href, title, text){
+          href = href.replace('\\','/')
+          if(decodeImgPath) href = decodeURIComponent(href)
+          // console.log("image::%s", href)
+          return `<img src="${href}"${text?` alt="${text}"`:''}${title?` title="${title}"`:''} />`
+        }
+      }
+    })
 
     const mdSource = fs.readFileSync(input, encoding)
     const htmlSource = marked.parse(mdSource)
+    // console.log(htmlSource)
 
     toDocx.generate(output, htmlSource, { pwd })
   }
