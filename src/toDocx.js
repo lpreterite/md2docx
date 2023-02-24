@@ -1,11 +1,12 @@
 const fs = require("fs")
 const path = require("path")
-const JSZip = require("jszip")
+const admZip = require("adm-zip")
 const mineType = require("mime-types")
 const crypto = require("crypto")
 const { Window } = require("happy-dom")
 const sizeOf = require("image-size")
 const { bootstrapDocumentTemplate, mhtDocumentTemplate, mhtPartTemplate } = require("./XMLTemplates.js")
+const AdmZip = require("adm-zip")
 
 const md5 = str => crypto.createHash('md5').update(str).digest('hex').toString();
 
@@ -38,26 +39,16 @@ function toDocx(options={}){
       margins: { ...__documentOptionsDefault.margins, ...documentOptions.margins }
     }
 
-    const _zip = new JSZip()
-    _zip.file(
+    const _zip = new AdmZip()
+    _zip.addFile(
       "[Content_Types].xml",
       fs.readFileSync(__dirname + "/assets/content_types.xml")
     );
-    _zip
-      .folder("_rels")
-      .file(".rels", fs.readFileSync(__dirname + "/assets/rels.xml"));
-    _zip
-      .folder("word")
-      .file("document.xml", bootstrapDocumentTemplate(documentOptions))
-      .file("afchunk.mht", mhtml)
-      .folder("_rels")
-      .file(
-        "document.xml.rels",
-        fs.readFileSync(__dirname + "/assets/document.xml.rels")
-      );
-    const buffer = Buffer.from(new Uint8Array(_zip.generate({
-      type: "arraybuffer",
-    })))
+    _zip.addFile("_rels/.rels", fs.readFileSync(__dirname + "/assets/rels.xml"))
+    _zip.addFile("word/document.xml", bootstrapDocumentTemplate(documentOptions))
+    _zip.addFile("word/afchunk.mht", mhtml, "utf8")
+    _zip.addFile("word/_rels/document.xml.rels",fs.readFileSync(__dirname + "/assets/document.xml.rels"))
+    const buffer = _zip.toBuffer()
     fs.writeFile(ouputPath, buffer, (error) => {
       if (error) {
         console.log('Docx file creation failed');

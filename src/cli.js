@@ -14,7 +14,8 @@ program
   .argument('<string>', 'Markdown File')
   .action((mdPath)=>{
     const opts = program.opts();
-    md2docx.generate(path.resolve(process.cwd(),mdPath), path.resolve(process.cwd(),opts.outputDir))
+    let outputDir = opts.outputDir ? path.resolve(process.cwd(), opts.outputDir) : undefined
+    md2docx.generate(path.resolve(process.cwd(),mdPath), outputDir)
   })
 
 program.parse();
