@@ -4,6 +4,13 @@
 
 
 
+### [1.0.2](https://github.com/lpreterite/md2docx/compare/1.0.1...1.0.2) (2023-02-24)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 增加图片中文路径的解码匹配 ([fc78e73](https://github.com/lpreterite/md2docx/commit/fc78e738c7217191058f3858208af8af859fbbca))
+
 ### [1.0.1](https://github.com/lpreterite/md2docx/compare/1.0.0...1.0.1) (2023-02-24)
 
 
