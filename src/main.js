@@ -24,7 +24,6 @@ function MD2Docx({decodeImgPath=true}={}){
     marked.use({
       renderer: {
         image(href, title, text){
-          href = href.replace('\\','/')
           if(decodeImgPath) href = decodeURIComponent(href)
           // console.log("image::%s", href)
           return `<img src="${href}"${text?` alt="${text}"`:''}${title?` title="${title}"`:''} />`
@@ -33,8 +32,8 @@ function MD2Docx({decodeImgPath=true}={}){
     })
 
     const mdSource = fs.readFileSync(input, encoding)
-    const htmlSource = marked.parse(mdSource)
-    // console.log(htmlSource)
+    const htmlSource = marked.parse(mdSource.replace(/\((\S+)\\(\S+)\)/g, "($1//$2)"))
+    // console.log(mdSource)
 
     toDocx.generate(output, htmlSource, { pwd })
   }
