@@ -4,6 +4,13 @@
 
 
 
+### [1.0.3](https://github.com/lpreterite/md2docx/compare/1.0.2...1.0.3) (2023-02-27)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复图片路径中包含反斜杠时无法识别的情况 ([cc31a61](https://github.com/lpreterite/md2docx/commit/cc31a6104820b7184c786422c5b0755409b864a1))
+
 ### [1.0.2](https://github.com/lpreterite/md2docx/compare/1.0.1...1.0.2) (2023-02-24)
 
 
